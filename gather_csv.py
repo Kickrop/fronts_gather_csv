@@ -15,4 +15,3 @@ for filename in tqdm(os.listdir(path)):
                 for i in lines:
                     nf.write(i)
         #print(lines)
-
