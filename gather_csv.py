@@ -17,5 +17,5 @@ os.chdir(path)
 
 for filename in os.listdir(path):
     if filename.startswith('1.csv'):
-        alt_fn = filename.split('.')
-        print(os.path.basename(alt_fn[0]))
+        #alt_fn = filename.split('.')
+        print(os.path.basename(filename.split('.')[0]))
