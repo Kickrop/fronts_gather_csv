@@ -1,17 +1,18 @@
 import os
+from tqdm import tqdm
 
 path = 'H:\Fronts\jan2019\correction(aug19)'
 
-#os.chdir(path)
+os.chdir(path)
 
-for filename in os.listdir(path):
-    if filename.startswith('1.csv'):
-        with open('1.csv', 'r') as f:
+#pam = os.getcwd()
+
+for filename in tqdm(os.listdir(path)):
+    if filename.endswith('.csv'):
+        with open(filename, 'r') as f:
             lines = f.readlines()[2:-2]
-            with open('text.csv', 'a') as nf:
+            with open('gathered.csv', 'a') as nf:
                 for i in lines:
                     nf.write(i)
-   # else
-    #    continue
-#pam = os.getcwd()
+        #print(lines)
 
