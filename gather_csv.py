@@ -19,7 +19,7 @@ f.close()
 
 #loop through all csv files in the folder
 for filename in tqdm(os.listdir(path)):
-    if filename.endswith('.csv'):
+    if filename.endswith('.csv') and not filename.startswith(output_filename):
         with open(filename, 'r') as f:
             #take papers information only
             lines = f.readlines()[2:-2]
