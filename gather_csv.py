@@ -1,6 +1,7 @@
 import os
 from tqdm import tqdm
 
+#path to downloaded fronts files in .csv
 path = 'H:\Fronts\jan2019\correction(aug19)'
 
 os.chdir(path)
@@ -16,14 +17,16 @@ with open('1.csv', 'r') as f:
     nf.close()
 f.close()
 
+#loop through all csv files in the folder
 for filename in tqdm(os.listdir(path)):
     if filename.endswith('.csv'):
         with open(filename, 'r') as f:
+            #take papers information only
             lines = f.readlines()[2:-2]
+            #write id_front and papers of that front in one csv
             with open(output_filename + '.csv', 'a') as nf:
                 for i in lines:
                     id_front = os.path.basename(filename.split('.')[0])
-                    #write id_front and papers of that front in one csv
                     nf.write(f'"{id_front}",' + i)
             nf.close()
         f.close()
