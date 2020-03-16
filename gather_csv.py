@@ -4,7 +4,8 @@ from tqdm import tqdm
 
 #path to downloaded fronts files in .csv
 #path = 'H:\Fronts\jan2019\correction(aug19)'
-path = 'H:/Fronts/08_2019/front_files'
+path = 'H:/Fronts/jan2020/csv_files'
+output_path = 'H:/Fronts/jan2020'
 
 os.chdir(path)
 
@@ -21,6 +22,7 @@ f.close()
 
 #loop through all csv files in the folder
 for filename in tqdm(os.listdir(path)):
+    #os.chdir(path)
     if filename.endswith('.csv') and not filename.startswith(output_filename):
         with open(filename, 'r') as f:
             #take papers information only
@@ -30,6 +32,7 @@ for filename in tqdm(os.listdir(path)):
             front_name = (re.search(r"(?<=')(.*)(?=')",first_line)).group()   
             #print(front_name,papers)
             #write id_front and papers of that front in one csv
+            #os.chdir(output_path)
             with open(output_filename + '.csv', 'a') as nf:
                 for i in papers:
                     id_front = os.path.basename(filename.split('.')[0])
