@@ -4,17 +4,17 @@ from tqdm import tqdm
 
 #path to downloaded fronts files in .csv
 #path = 'H:\Fronts\jan2019\correction(aug19)'
-path = 'H:/Fronts/jan2020/csv_files'
-output_path = 'H:/Fronts/jan2020'
+path = 'D:/work/fronts/aug2021_стажеры'
+output_path = 'D:/work/fronts/aug2021_output/'
 
 os.chdir(path)
 
 output_filename = 'gathered'
 
-#take second line from 1.csv file and write it as a header into created file
+#take second line from 1.csv file and use it as a header of created file
 with open('1.csv', 'r') as f:    
     new_header = f.readlines()[1]   
-    with open(output_filename + '.csv', 'a') as nf:
+    with open(output_path + output_filename + '.csv', 'a') as nf:
         #add header for front_name and id_front which values will be appended later
         nf.write(f'front_name,id_front,' + new_header)
     nf.close()
@@ -33,7 +33,7 @@ for filename in tqdm(os.listdir(path)):
             #print(front_name,papers)
             #write id_front and papers of that front in one csv
             #os.chdir(output_path)
-            with open(output_filename + '.csv', 'a') as nf:
+            with open(output_path + output_filename + '.csv', 'a') as nf:
                 for i in papers:
                     id_front = os.path.basename(filename.split('.')[0])
                     nf.write(f'"{front_name}","{id_front}",' + i)
