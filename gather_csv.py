@@ -44,7 +44,8 @@ def get_data_from_csvs(output_path,output_filename):
                         list_of_papers.append(f'"{front_name}","{id_front}",' + i)
                 f.close()                 
             except:
-                print('somethings not right')                 
+                print('somethings not right')       
+    #file doesn't get rewriten!                      
     with open(output_path + output_filename + '.csv', 'a') as nf:
         nf.write(get_header())
         for paper in list_of_papers:
