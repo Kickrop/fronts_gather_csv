@@ -4,8 +4,9 @@ from tqdm import tqdm
 
 #path to downloaded fronts files in .csv
 #path = 'H:\Fronts\jan2019\correction(aug19)'
-path = 'D:/work/fronts/aug2021_стажеры'
-output_path = 'D:/work/fronts/aug2021_output/'
+path = r'D:/work/fronts/aug2022/src'
+#output_path = 'D:/work/fronts/april_2022/output/'
+output_path = 'D:/work/fronts/aug2022/output/'
 
 os.chdir(path)
 
